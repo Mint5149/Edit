@@ -1,0 +1,183 @@
+/* Product Showcase Styles */
+.content-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 70px;
+}
+
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.product-section-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.product-more-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.product-more-link:hover {
+    text-decoration: underline;
+}
+
+/* iPad Air 6 Hero Section - BIGGER */
+.product-hero {
+    display: flex;
+    align-items: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+    background-color: #ffffff;
+    border-radius: 18px; /* เพิ่มความโค้งมน */
+    overflow: hidden;
+    margin-bottom: 30px; /* เพิ่มระยะห่างด้านล่าง */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content {
+    flex: 1;
+    padding: 50px; /* เพิ่ม padding */
+}
+
+.hero-title {
+    font-size: 40px; /* เพิ่มขนาดฟอนต์ */
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 10px; /* เพิ่มระยะห่าง */
+}
+
+.hero-description {
+    font-size: 16px; /* เพิ่มขนาดฟอนต์ */
+    color: #555;
+    margin-bottom: 20px; /* เพิ่มระยะห่าง */
+    line-height: 1.5; /* เพิ่มความสูงระหว่างบรรทัด */
+}
+
+.hero-image-container {
+    flex: 1;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px; /* เพิ่ม padding */
+    
+}
+
+.hero-image {
+    max-height: 280px; /* เพิ่มความสูงของรูปภาพ */
+    width: auto;
+    display: block;
+    width: 300px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px; /* เพิ่มระยะห่างระหว่างปุ่ม */
+}
+
+.hero-btn {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 12px 22px; /* เพิ่ม padding ของปุ่ม */
+    font-size: 14px; /* เพิ่มขนาดฟอนต์ */
+    font-weight: 500;
+    border-radius: 18px; /* เพิ่มความโค้งมน */
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.hero-btn:hover {
+    opacity: 0.8;
+}
+
+/* Product Cards Row */
+.product-row {
+    display: flex;
+    gap: 30px; /* เพิ่มระยะห่างระหว่างการ์ด */
+    margin-bottom: 30px;
+}
+
+.product-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* เปลี่ยนเป็นแนวตั้งเพื่อให้จัดการง่ายขึ้น */
+    background-color: #ffffff;
+    border-radius: 18px; /* เพิ่มความโค้งมน */
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 25px; /* เพิ่ม padding */
+    justify-content: space-between;
+    position: relative;
+    padding: 40px;
+    min-height: 200px;
+}
+
+.card-text {
+    flex-basis: auto; /* ปรับให้ยืดหยุ่น */
+}
+
+.card-title {
+    font-size: 22px; /* เพิ่มขนาดฟอนต์ */
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.card-description {
+    font-size: 14px; /* เพิ่มขนาดฟอนต์ */
+    color: #777;
+    margin-bottom: 20px; /* เพิ่มระยะห่าง */
+    min-height: 40px; /* ช่วยให้การ์ดสูงเท่ากัน */
+}
+
+.card-buttons {
+    display: flex;
+    gap: 10px; /* เพิ่มระยะห่าง */
+}
+
+.card-btn {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px; /* เพิ่ม padding */
+    font-size: 12px; /* เพิ่มขนาดฟอนต์ */
+    font-weight: 500;
+    border-radius: 15px; /* เพิ่มความโค้งมน */
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.card-btn:hover {
+    opacity: 0.8;
+}
+
+.card-image-wrapper {
+    flex-basis: 50%;
+    text-align: right;
+    position: absolute;
+    top: 10px; 
+    right: 10px;
+    width: auto; 
+    height: auto;
+    text-align: right;
+}
+
+.card-image,
+.card-image-stacked {
+    max-width: 80%; /* ทำให้รูปภาพใหญ่ขึ้น แต่ไม่ล้นกรอบ */
+    max-height: 180px; /* เพิ่มความสูงสูงสุดของรูปภาพ */
+    height: auto;
+    object-fit: contain;
+   
+}
+

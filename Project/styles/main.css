@@ -1,0 +1,277 @@
+.camera-section {
+    width: 100%;
+    height: 500px;
+    background-image: url('./picmain/20.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+
+.banner-content h1 {
+    position: absolute;
+    top: 100px; /* กำหนดระยะห่างจากขอบด้านบน */
+    left: 50%; /* จัดให้อยู่กึ่งกลางในแนวนอน */
+    transform: translateX(-50%); /* เลื่อนกลับมาครึ่งหนึ่งของความกว้าง */
+    text-align: center;
+    color: white; 
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.camera-section h1 {
+  font-size: 50px;
+  margin: 10px 0 20px;
+}
+
+.camera-section img {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 20px;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+/* สไตล์ของปุ่มปกติ (กรอบนูน) */
+.btn {
+    padding: 12px 24px;
+    border: none;  /* ลบกรอบเดิมออก */
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: none; /* เปลี่ยนสีพื้นหลังเป็นสีขาว */
+    color: #333; /* สีตัวอักษร */
+    cursor: pointer; /* ทำให้เมาส์เป็นรูปมือเมื่อนำไปชี้ */
+}
+
+/* สไตล์เมื่อนำเมาส์ไปวางบนปุ่ม (กรอบเว้า) */
+.btn:hover {
+    background-color: #f0f0f0; /* เปลี่ยนสีพื้นหลังเล็กน้อย */
+    
+    /* สร้างเอฟเฟกต์เว้าด้วย inset box-shadow */
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.1),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.7);
+    
+    transform: translateY(1px); /* ทำให้ปุ่มดูเหมือนถูกกดลงไปเล็กน้อย */
+}
+
+/*-------------------------------------------------------------------------------*/
+
+
+
+.camera-section1 {
+  background: linear-gradient(to top right, #eae2f4, #ffffff);
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.camera-section2 {
+  background: linear-gradient(to top right, #eae2f4, #ffffff);
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.camera-section3 {
+  background: linear-gradient(to top right, #eae2f4, #ffffff);
+  text-align: center;
+  padding: 60px 20px;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+.buttons {
+    position: absolute;
+    bottom: 20px; /* กำหนดระยะห่างจากขอบด้านล่าง */
+    left: 20px;   /* กำหนดระยะห่างจากขอบด้านซ้าย */
+    transform: translate(0, 0); /* ลบการเลื่อนตำแหน่งเดิม */
+    text-align: left; /* เปลี่ยนให้ข้อความชิดซ้าย */
+    color: white;
+    width: auto; /* ปรับความกว้างให้พอดีกับเนื้อหา */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* สไตล์สำหรับปุ่มทั้งหมด (พื้นฐาน) - คุณอาจมีอยู่แล้ว */
+.btn {
+   padding: 12px 24px;
+   border-radius: 8px;
+   cursor: pointer;
+   font-size: 1em;
+   text-decoration: none; /* ลบเส้นใต้เริ่มต้น */
+}
+
+/* สไตล์สำหรับปุ่ม "เรียนรู้เพิ่มเติม" */
+.btn.learn-more {
+   background-color: #000; /* สีดำ */
+   color: #fff; /* สีตัวอักษรขาว */
+   border: none;
+   border-radius: 25px; /* ขอบมนมากขึ้น */
+}
+
+.btn.learn-more:hover {
+   background-color: #333;
+}
+
+/* สไตล์สำหรับปุ่ม "สั่งซื้อเลย" */
+.btn.order-now {
+   background-color: transparent; /* โปร่งใส */
+   color: #b9b7b7; /* สีตัวอักษรขาว */
+   border: none;
+   padding: 12px 0; /* ปรับ padding */
+   text-decoration: underline; /* ขีดเส้นใต้ */
+}
+
+.btn.order-now:hover {
+   color: #ccc;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+.camera-section1 {
+    width: 100%;
+    height: 500px;
+    background-image: url('./picmain/16.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.buttons2 {
+    position: absolute;
+    bottom: 20px; /* กำหนดระยะห่างจากขอบด้านล่าง */
+    left: 20px;   /* กำหนดระยะห่างจากขอบด้านซ้าย */
+    transform: translate(0, 0); /* ลบการเลื่อนตำแหน่งเดิม */
+    text-align: left; /* เปลี่ยนให้ข้อความชิดซ้าย */
+    color: white;
+    width: auto; /* ปรับความกว้างให้พอดีกับเนื้อหา */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.iphone-text {
+    font-size: 2em; 
+    text-align: center;
+    color: #000000; /* สีข้อความ */
+}
+
+/*-------------------------------------------------------------------------------*/
+
+.camera-section2 {
+    width: 100%;
+    height: 500px;
+    background-image: url('./picmain/3.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.macbook-air-text {
+    font-size: 1.6em; /* กำหนดขนาดตัวอักษรของ MacBook Air */
+    text-align: center;
+}
+
+.speed-text {
+    font-size: 1.5em; /* กำหนดขนาดตัวอักษรของ เร็วเหนือเมฆ */
+    text-align: center;
+}
+
+.buttons3 {
+    position: absolute;
+    bottom: 20px; /* กำหนดระยะห่างจากขอบด้านล่าง */
+    left: 20px;   /* กำหนดระยะห่างจากขอบด้านซ้าย */
+    transform: translate(0, 0); /* ลบการเลื่อนตำแหน่งเดิม */
+    text-align: left; /* เปลี่ยนให้ข้อความชิดซ้าย */
+    color: white;
+    width: auto; /* ปรับความกว้างให้พอดีกับเนื้อหา */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+/* สไตล์สำหรับส่วนที่แสดงข้อความแนวตั้ง */
+.vertical-text-section {
+    text-align: left; /* จัดให้ข้อความอยู่กึ่งกลาง */
+    padding: 50px 0;
+}
+
+.vertical-text {
+    font-size: 3em;
+    line-height: 1.2;
+    font-weight: normal;
+    color: #333;
+    margin-top: -200px; /* ใช้ค่าติดลบเพื่อดันตัวอักษรขึ้นไปด้านบน */
+    /* โค้ดที่เพิ่มเพื่อขยับไปทางขวา */
+    position: absolute;
+    left: 5%; /* กำหนดให้ห่างจากขอบซ้าย 20% ของกรอบ */
+}
+
+/*-------------------------------------------------------------------------------*/
+
+.hero-description {
+    text-align: center;
+    font-size: 1.5em;
+    color: #666;
+    margin: 40px 20px;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+.camera-section3 {
+    width: 100%;
+    height: 700px;
+    background-image: url('./picmain/11.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.buttons4 {
+    position: absolute;
+    bottom: 20px; /* กำหนดระยะห่างจากขอบด้านล่าง */
+    left: 20px;   /* กำหนดระยะห่างจากขอบด้านซ้าย */
+    transform: translate(0, 0); /* ลบการเลื่อนตำแหน่งเดิม */
+    text-align: left; /* เปลี่ยนให้ข้อความชิดซ้าย */
+    color: white;
+    width: auto; /* ปรับความกว้างให้พอดีกับเนื้อหา */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.vertical-text-section {
+    text-align: left; /* จัดให้ข้อความอยู่กึ่งกลาง */
+    padding: 50px 0;
+}
+
+.vertical-text {
+    font-size: 3em;
+    line-height: 1.2;
+    font-weight: normal;
+    color: #333; /* สีเริ่มต้น (ถ้าไม่ได้กำหนด class) */
+    margin-top: -200px;
+    /* โค้ดที่เพิ่มเพื่อขยับไปทางขวา */
+    position: absolute;
+    left: 5%; /* กำหนดให้ห่างจากขอบซ้าย 20% ของกรอบ */
+}
+
+/* เพิ่มส่วนนี้เพื่อกำหนดสีให้กับแต่ละตัวอักษร */
+.char-i {
+    color: #FF6666;
+}
+.char-p {
+    color: #6699FF;
+}
+.char-h {
+    color: #66CC66;
+}
+.char-o {
+    color: #FFCC66;
+}
+.char-n {
+    color: #9966CC;
+}
+.char-e {
+    color: #66CCCC;
+}
+
