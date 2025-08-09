@@ -257,78 +257,155 @@
                     </ul>
                 </nav>
             </div>
-           <div class="navbar-icons">
-    <a href="#" >ร้านค้าออนไลน์</a>
-    <a href="#" >ชุมชน</a>
-    <a href="#" >สนับสนุน</a>
-    <a href="#" >ตัวค้นหาสาขา</a>
 
-    <a href="#" id="search-container" class="search-container js-overlay-trigger">
-    <i class="fas fa-search"></i>
-
-    <div id="search-menu" class="search-menu-dropdown">
-        <div class="search-bar-container">
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="ค้นหาบน apple.com">
-        </div>
-
-        <div class="quick-links">
-            <h4>Quick Links</h4>
-            <ul>
-                <li><a href="#">iPhone 16 Pro</a></li>
-                <li><a href="#">iPad Air</a></li>
-                <li><a href="#">MacBook Air</a></li>
-                <li><a href="#">Apple Watch X2</a></li>
-                <li><a href="#">AirPods</a></li>
-            </ul>
-        </div>
-    </div>
-</a>
-
-</body>
+            <div class="navbar-right">
+                <div class="navbar-icons">
+                    <a href="#">ร้านค้าออนไลน์</a>
+                    <a href="#">ชุมชน</a>
+                    <a href="#">สนับสนุน</a>
+                    <a href="#">ตัวค้นหาสาขา</a>
 
 
+                    <a href="#" id="search-icon-trigger" class="js-overlay-trigger">
+                        <i class="fas fa-search"></i>
+                    </a>
 
-    <a href="#" class="js-overlay-trigger" >
-        <i class="fas fa-user"></i> 
-    </a>
-    <a href="#"  >
-        <i class="fas fa-shopping-cart"></i>
-    </a>
-</div>
-        </div>
+                    <div id="search-popup-menu" class="search-popup">
+                        <div class="search-bar-container">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="ค้นหาบน apple.com">
+                        </div>
+                        <div class="quick-links">
+                            <h4>Quick Links</h4>
+                            <ul>
+                                <li><a href="#">iPhone 16 Pro</a></li>
+                                <li><a href="#">iPad Air</a></li>
+                                <li><a href="#">MacBook Air</a></li>
+                                <li><a href="#">Apple Watch X2</a></li>
+                                <li><a href="#">AirPods</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <a href="#" class="js-overlay-trigger" id="user-icon-trigger">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <div id="user-popup-menu" class="user-popup">
+                        <div class="user-profile-header">
+                            <div class="user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="user-greeting">
+                                <p>สวัสดีครับ</p>
+                                <div class="user-auth-links">
+                                    <a href="#">ลงทะเบียน  ></a>
+                                    <a href="#">เข้าสู่ระบบ   ></a>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="popup-divider">
+                        <ul class="user-main-links">
+                            <li>
+                                <a href="#">
+                                    <span><i class="far fa-user-circle"></i> บัญชี</span>
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span><i class="far fa-star"></i> Membership</span>
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="#">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </div>
+            </div>
     </header>
-<div class="page-overlay"></div>
+    <div class="page-overlay"></div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const triggerElements = document.querySelectorAll('.js-overlay-trigger');
-        const overlay = document.querySelector('.page-overlay');
-        let hideTimeout; // ตัวแปรสำหรับเก็บการหน่วงเวลา
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- 1. เลือก Element ที่จำเป็นทั้งหมด ---
+            const overlay = document.querySelector('.page-overlay');
+            const mainDropdownTriggers = document.querySelectorAll('.js-overlay-trigger');
+            const searchIcon = document.getElementById('search-icon-trigger');
+            const searchPopup = document.getElementById('search-popup-menu');
 
-        triggerElements.forEach(element => {
-            // เมื่อเมาส์เข้าไปบนพื้นที่ของตัวกระตุ้น
-            element.addEventListener('mouseenter', () => {
-                // ยกเลิกการซ่อนที่อาจกำลังจะทำงาน
+            let hideTimeout; // ใช้ตัวแปรหน่วงเวลาร่วมกัน
+
+            // --- 2. สร้างฟังก์ชันสำหรับการแสดงและซ่อน ---
+
+            // ฟังก์ชันแสดงพื้นหลังทึบ
+            const showOverlay = () => {
                 clearTimeout(hideTimeout);
-                // แสดงพื้นหลังทึบ
                 overlay.classList.add('overlay-visible');
-            });
+            };
 
-            // เมื่อเมาส์ออกจากพื้นที่ของตัวกระตุ้น
-            element.addEventListener('mouseleave', () => {
-                // ตั้งเวลาเพื่อซ่อนพื้นหลังทึบ
+            // ฟังก์ชันซ่อนพื้นหลังและเมนูค้นหา
+            const hideAll = () => {
                 hideTimeout = setTimeout(() => {
                     overlay.classList.remove('overlay-visible');
-                }, 50); // หน่วงเวลา 50 มิลลิวินาที
+                    if (searchPopup) {
+                        searchPopup.classList.remove('visible');
+                    }
+                }, 100); // หน่วงเวลาเล็กน้อยเพื่อให้เลื่อนเมาส์ทัน
+            };
+
+            // --- 3. การทำงานของเมนูหลัก (Mac, iPad, ...) ---
+            mainDropdownTriggers.forEach(element => {
+                element.addEventListener('mouseenter', showOverlay);
+                element.addEventListener('mouseleave', hideAll);
             });
+
+            // --- 4. การทำงานของเมนูค้นหา (ไอคอน + ป๊อปอัพ) ---
+            if (searchIcon && searchPopup) {
+                // เมื่อโฮเวอร์ที่ไอคอน
+                searchIcon.addEventListener('mouseenter', () => {
+                    showOverlay(); // แสดงพื้นหลัง
+                    searchPopup.classList.add('visible'); // แสดงป๊อปอัพ
+                });
+                searchIcon.addEventListener('mouseleave', hideAll);
+
+                // เมื่อโฮเวอร์ที่ตัวป๊อปอัพเอง
+                searchPopup.addEventListener('mouseenter', () => {
+                    showOverlay(); // แสดงพื้นหลังค้างไว้
+                });
+                searchPopup.addEventListener('mouseleave', hideAll);
+            }
         });
-    });
 
-    // === Search Menu Logic ===
-    
-</script>
+        // --- ส่วนจัดการ User Popup (ทำงานแยก) ---
+        const userIcon = document.getElementById('user-icon-trigger');
+        const userPopup = document.getElementById('user-popup-menu');
+        let hideUserPopupTimeout;
 
+        if (userIcon && userPopup) {
+            const userElements = [userIcon, userPopup];
+
+            userElements.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    clearTimeout(hideUserPopupTimeout);
+                    userPopup.classList.add('visible');
+                    // ถ้าต้องการให้พื้นหลังทึบทำงานกับ user popup ด้วย ให้เพิ่มบรรทัดนี้:
+                    // document.querySelector('.page-overlay').classList.add('overlay-visible');
+                });
+
+                element.addEventListener('mouseleave', () => {
+                    hideUserPopupTimeout = setTimeout(() => {
+                        userPopup.classList.remove('visible');
+                        // และเพิ่มบรรทัดนี้ถ้าต้องการซ่อนพื้นหลัง
+                        // document.querySelector('.page-overlay').classList.remove('overlay-visible');
+                    }, 100);
+                });
+            });
+        }
+    </script>
 
     <body>
 
