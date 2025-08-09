@@ -49,7 +49,7 @@ body {
     padding: 0;
     display: flex;
     gap: 20px;
-    position: relative; /* เพิ่มบรรทัดนี้ */
+    
 }
 
 .main-menu a {
@@ -78,7 +78,7 @@ body {
     background-color: black;
     transform: translateX(-50%);
     transition: width 0.3s ease-in-out;
-    display: none; /* เพิ่มบรรทัดนี้เพื่อปิดเอฟเฟกต์เดิม */
+   
 }
 
 .main-menu .dropdown {
@@ -119,28 +119,27 @@ body {
 
 /* === Mega Menu Styles === */
 .dropdown-content {
-    display: none;
+    /* display: none; <--- Removed this line */
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
     background-color: #ffffff;
-    /* เพิ่มเงาให้เมนูที่เลื่อนลงมา */
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     padding: 2.5rem 0;
     z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    /* ปรับเวลาให้ช้าลงเพื่ออนิเมชั่นที่นุ่มนวลขึ้น */
-    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+    opacity: 0; /* Start fully transparent */
+    visibility: hidden; /* Hide the element */
+    transform: translateY(-10px); /* Start slightly moved up */
+    /* Smooth transition for opacity, transform, and visibility */
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+    /* display: block; <--- Removed this line */
+    opacity: 1; /* Fade to fully visible */
+    visibility: visible; /* Make the element visible */
+    transform: translateY(0); /* Move to its original position */
 }
 
 .dropdown:hover .dropbtn {
@@ -184,11 +183,15 @@ body {
     background-color: #f7f7f7;
     transition: background-color 0.2s ease;
     position: relative;
+   
 }
 
 .product-item:hover .product-image-wrapper img {
     transform: scale(1.1);
+
 }
+
+
 
 .product-image-wrapper {
     height: 160px;
@@ -357,4 +360,113 @@ body {
 
 .single-link-container a:hover {
     color: #000;
+}
+
+/* Overlay for dropdown background */
+.page-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.244); /* สีดำโปร่งแสง 50% */
+    z-index: 990; /* จัดลำดับให้อยู่หลัง dropdown แต่ทับเนื้อหาอื่น */
+    opacity: 0;
+    visibility: hidden;
+    /* transition property is removed */
+}
+
+.overlay-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* === Search Menu Overlay Styles === */
+
+/* === Search Dropdown Menu Styles === */
+
+/* ตัวครอบไอคอนค้นหาและเมนู */
+.search-container {
+    position: relative; /* ทำให้เป็นจุดอ้างอิงสำหรับเมนู */
+}
+
+/* กล่องเมนูค้นหาที่เลื่อนลงมา */
+.search-menu-dropdown {
+    position: absolute;
+    top: 160%; /* ระยะห่างจากไอคอนด้านบน */
+    right: -25px; /* จัดตำแหน่งแนวนอน (ปรับค่าได้) */
+    width: 360px; /* ความกว้างของกล่องเมนู */
+    background-color: #ffffff;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 2000;
+    visibility: hidden; /* ซ่อนไว้ก่อน */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease-in-out;
+}
+
+/* คลาสสำหรับสั่งให้แสดงผล */
+.search-menu-dropdown.visible {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ไม่ต้องมีปุ่มปิดแล้ว จึงไม่ต้องมีสไตล์ #close-search */
+
+/* สไตล์ของช่องค้นหาและลิงก์ยังคงใช้ได้ แต่ปรับปรุงเล็กน้อย */
+.search-menu-dropdown .search-bar-container {
+    display: flex;
+    align-items: center;
+    background-color: #f0f2f5;
+    border-radius: 999px;
+    padding: 10px 15px;
+}
+
+.search-menu-dropdown .search-bar-container i {
+    color: #888;
+    margin-right: 10px;
+}
+
+.search-menu-dropdown .search-bar-container input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 16px;
+    font-family: 'Prompt', sans-serif;
+}
+
+.search-menu-dropdown .quick-links {
+    margin-top: 15px;
+}
+
+.search-menu-dropdown .quick-links h4 {
+    color: #888;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 5px;
+    padding: 0 5px;
+}
+
+.search-menu-dropdown .quick-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-menu-dropdown .quick-links a {
+    display: block;
+    text-decoration: none;
+    color: #000000;
+    font-size: 16px;
+    padding: 10px 5px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.search-menu-dropdown .quick-links a:hover {
+    background-color: #f0f2f5;
 }

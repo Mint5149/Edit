@@ -31,7 +31,7 @@
                 </div>
                 <nav class="main-menu">
                     <ul>
-                        <li class="dropdown">
+                        <li class="dropdown js-overlay-trigger ">
                             <a href="#" class="dropbtn">Mac</a>
                             <div class="dropdown-content">
                                 <div class="mega-menu-container">
@@ -101,7 +101,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="dropdown">
+                        <li class="dropdown js-overlay-trigger">
                             <a href="#" class="dropbtn">iPad</a>
                             <div class="dropdown-content">
                                 <div class="mega-menu-container">
@@ -160,7 +160,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="dropdown">
+                        <li class="dropdown js-overlay-trigger">
                             <a href="#" class="dropbtn">iPhone</a>
                             <div class="dropdown-content">
                                 <div class="mega-menu-container">
@@ -202,7 +202,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="dropdown">
+                        <li class="dropdown js-overlay-trigger ">
                             <a href="#" class="dropbtn">Watch</a>
                             <div class="dropdown-content">
                                 <div class="mega-menu-container">
@@ -231,7 +231,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="dropdown dropdown-simple">
+                        <li class="dropdown dropdown-simple js-overlay-trigger">
                             <a href="#" class="dropbtn">About Apple</a>
                             <div class="dropdown-content">
                                 <div class="mega-menu-container">
@@ -244,7 +244,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="dropdown dropdown-simple">
+                        <li class="dropdown dropdown-simple js-overlay-trigger ">
                             <a href="#" class="dropbtn">Apple</a>
                             <div class="dropdown-content">
                                 <div class="mega-menu-container">
@@ -257,28 +257,77 @@
                     </ul>
                 </nav>
             </div>
-            <div class="navbar-right">
-                <div class="navbar-icons">
-                    <a href="#">ร้านค้าออนไลน์</a>
-                    <a href="#">ชุมชน</a>
-                    <a href="#">สนับสนุน</a>
-                    <a href="#">ตัวค้นหาสาขา</a>
-                    <a href="#">
-                        <i class="fas fa-search"></i>
-                    </a>
+           <div class="navbar-icons">
+    <a href="#" >ร้านค้าออนไลน์</a>
+    <a href="#" >ชุมชน</a>
+    <a href="#" >สนับสนุน</a>
+    <a href="#" >ตัวค้นหาสาขา</a>
 
-                    <a href="#">
-                        <i class="fas fa-shopping-cart"></i>
-                    </a>
+    <a href="#" id="search-container" class="search-container js-overlay-trigger">
+    <i class="fas fa-search"></i>
 
-                    <a href="#">
-                        <i class="fas fa-user"></i>
-                    </a>
-                </div>
-            </div>
+    <div id="search-menu" class="search-menu-dropdown">
+        <div class="search-bar-container">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="ค้นหาบน apple.com">
+        </div>
+
+        <div class="quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">iPhone 16 Pro</a></li>
+                <li><a href="#">iPad Air</a></li>
+                <li><a href="#">MacBook Air</a></li>
+                <li><a href="#">Apple Watch X2</a></li>
+                <li><a href="#">AirPods</a></li>
+            </ul>
+        </div>
+    </div>
+</a>
+
+</body>
+
+
+
+    <a href="#" class="js-overlay-trigger" >
+        <i class="fas fa-user"></i> 
+    </a>
+    <a href="#"  >
+        <i class="fas fa-shopping-cart"></i>
+    </a>
+</div>
         </div>
     </header>
+<div class="page-overlay"></div>
 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const triggerElements = document.querySelectorAll('.js-overlay-trigger');
+        const overlay = document.querySelector('.page-overlay');
+        let hideTimeout; // ตัวแปรสำหรับเก็บการหน่วงเวลา
+
+        triggerElements.forEach(element => {
+            // เมื่อเมาส์เข้าไปบนพื้นที่ของตัวกระตุ้น
+            element.addEventListener('mouseenter', () => {
+                // ยกเลิกการซ่อนที่อาจกำลังจะทำงาน
+                clearTimeout(hideTimeout);
+                // แสดงพื้นหลังทึบ
+                overlay.classList.add('overlay-visible');
+            });
+
+            // เมื่อเมาส์ออกจากพื้นที่ของตัวกระตุ้น
+            element.addEventListener('mouseleave', () => {
+                // ตั้งเวลาเพื่อซ่อนพื้นหลังทึบ
+                hideTimeout = setTimeout(() => {
+                    overlay.classList.remove('overlay-visible');
+                }, 50); // หน่วงเวลา 50 มิลลิวินาที
+            });
+        });
+    });
+
+    // === Search Menu Logic ===
+    
+</script>
 
 
     <body>
