@@ -1,6 +1,6 @@
 .camera-section {
     width: 100%;
-    height: 500px;
+    height: 600px;
     background-image: url('./picmain/20.jpg');
     background-size: cover;
     background-position: center;
@@ -48,12 +48,8 @@
 .btn:hover {
     background-color: #f0f0f0; /* เปลี่ยนสีพื้นหลังเล็กน้อย */
     
-    /* สร้างเอฟเฟกต์เว้าด้วย inset box-shadow */
-    box-shadow: 
-        inset 2px 2px 5px rgba(0, 0, 0, 0.1),
-        inset -2px -2px 5px rgba(255, 255, 255, 0.7);
+   
     
-    transform: translateY(1px); /* ทำให้ปุ่มดูเหมือนถูกกดลงไปเล็กน้อย */
 }
 
 /*-------------------------------------------------------------------------------*/
@@ -83,7 +79,7 @@
 .buttons {
     position: absolute;
     bottom: 20px; /* กำหนดระยะห่างจากขอบด้านล่าง */
-    left: 20px;   /* กำหนดระยะห่างจากขอบด้านซ้าย */
+    left: 50px;   /* กำหนดระยะห่างจากขอบด้านซ้าย */
     transform: translate(0, 0); /* ลบการเลื่อนตำแหน่งเดิม */
     text-align: left; /* เปลี่ยนให้ข้อความชิดซ้าย */
     color: white;
@@ -95,7 +91,7 @@
 /* สไตล์สำหรับปุ่มทั้งหมด (พื้นฐาน) - คุณอาจมีอยู่แล้ว */
 .btn {
    padding: 12px 24px;
-   border-radius: 8px;
+   border-radius: 999px;
    cursor: pointer;
    font-size: 1em;
    text-decoration: none; /* ลบเส้นใต้เริ่มต้น */
@@ -110,27 +106,36 @@
 }
 
 .btn.learn-more:hover {
-   background-color: #333;
+background-color: rgb(48, 48, 48);
+
 }
 
 /* สไตล์สำหรับปุ่ม "สั่งซื้อเลย" */
 .btn.order-now {
-   background-color: transparent; /* โปร่งใส */
-   color: #b9b7b7; /* สีตัวอักษรขาว */
-   border: none;
-   padding: 12px 0; /* ปรับ padding */
-   text-decoration: underline; /* ขีดเส้นใต้ */
+   /* คุณสมบัติเดิมที่เก็บไว้ */
+    background-color: transparent;
+    border: none;
+    color: #ffffff; /* สีตัวอักษรตั้งต้น */
+    padding: 12px 0;
+    
+    /* --- ส่วนที่แก้ไขและเพิ่มเติม --- */
+    position: left;          /* 1. ตั้งค่านี้เพื่อเป็นจุดอ้างอิงให้เส้นใต้ */
+    text-decoration: underline;       /* 2. เอาเส้นใต้แบบเก่าออก */
+
 }
 
+
 .btn.order-now:hover {
-   color: #ccc;
+    transform: translateY(-1px); /* ยังคงเอฟเฟกต์ขยับขึ้นเหมือนเดิม */
+    color: #ffffff; /* สีตัวอักษรตอน hover */
 }
+
 
 /*-------------------------------------------------------------------------------*/
 
 .camera-section1 {
     width: 100%;
-    height: 500px;
+    height: 600px;
     background-image: url('./picmain/16.jpg');
     background-size: cover;
     background-position: center;
@@ -140,13 +145,14 @@
 .buttons2 {
     position: absolute;
     bottom: 20px; /* กำหนดระยะห่างจากขอบด้านล่าง */
-    left: 20px;   /* กำหนดระยะห่างจากขอบด้านซ้าย */
+     left: 50px;   /* กำหนดระยะห่างจากขอบด้านซ้าย */
     transform: translate(0, 0); /* ลบการเลื่อนตำแหน่งเดิม */
     text-align: left; /* เปลี่ยนให้ข้อความชิดซ้าย */
     color: white;
     width: auto; /* ปรับความกว้างให้พอดีกับเนื้อหา */
     padding: 20px;
     box-sizing: border-box;
+
 }
 
 .iphone-text {
@@ -159,7 +165,7 @@
 
 .camera-section2 {
     width: 100%;
-    height: 500px;
+    height: 600px;
     background-image: url('./picmain/3.jpg');
     background-size: cover;
     background-position: center;
@@ -179,7 +185,7 @@
 .buttons3 {
     position: absolute;
     bottom: 20px; /* กำหนดระยะห่างจากขอบด้านล่าง */
-    left: 20px;   /* กำหนดระยะห่างจากขอบด้านซ้าย */
+     left: 50px;   /* กำหนดระยะห่างจากขอบด้านซ้าย */
     transform: translate(0, 0); /* ลบการเลื่อนตำแหน่งเดิม */
     text-align: left; /* เปลี่ยนให้ข้อความชิดซ้าย */
     color: white;
@@ -220,8 +226,8 @@
 
 .camera-section3 {
     width: 100%;
-    height: 700px;
-    background-image: url('./picmain/11.jpg');
+    height: 600px;
+    background-image: url('./picmain/2.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -230,7 +236,7 @@
 .buttons4 {
     position: absolute;
     bottom: 20px; /* กำหนดระยะห่างจากขอบด้านล่าง */
-    left: 20px;   /* กำหนดระยะห่างจากขอบด้านซ้าย */
+     left: 50px;   /* กำหนดระยะห่างจากขอบด้านซ้าย */
     transform: translate(0, 0); /* ลบการเลื่อนตำแหน่งเดิม */
     text-align: left; /* เปลี่ยนให้ข้อความชิดซ้าย */
     color: white;
@@ -275,3 +281,6 @@
     color: #66CCCC;
 }
 
+body > section {
+    margin-bottom: 10px; /* คุณสามารถปรับค่า 20px ได้ตามต้องการ */
+}
