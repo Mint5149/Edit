@@ -487,12 +487,12 @@ body {
 
 .user-profile-header {
     display: flex;
-    align-items: center;
-    margin-bottom: 15px;
+   align-items: center;
+   margin-bottom: 15px;
 }
 
 .user-avatar {
-    font-size: 13px;
+    font-size: 20px;
     background-color: #e9e9e9;
     color: #a0a0a0;
     width: 45px;
@@ -501,23 +501,30 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 15px;
+    margin-right: 0px; /* กลับมาใช้ระยะห่างด้านขวา */
+    flex-shrink: 0; /* ป้องกันไม่ให้ไอคอนหดตัว */
 }
 
 .user-greeting p {
-    margin: 0;
+     margin: 0 0 4px 0; 
     font-size: 16px;
     font-weight: 500;
+    margin-bottom: 2px; /* <--- เพิ่มบรรทัดนี้เพื่อเพิ่มระยะห่างเล็กน้อย */
+    padding-left: 14px;
 }
 
 .user-auth-links {
-    font-size: 10px;
-    display: flex; /* <--- เพิ่มบรรทัดนี้ */
-    align-items: center; /* <--- เพิ่มบรรทัดนี้ */
+    font-size: 13px;
+    display: flex; 
+    align-items: center; 
+    padding-left: 0px; /* <--- เพิ่มบรรทัดนี้เพื่อขยับให้ตรงกัน */
+  
 }
+
 .user-auth-links a {
     color: #9c9c9c;
     text-decoration: none;
+   
 }
 .user-auth-links span {
     margin: 0 5px;
