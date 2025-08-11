@@ -1,11 +1,10 @@
-
 /* General Body Styles */
 body {
     font-family: 'Prompt', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f0f2f5;
-   
+
 }
 
 html, body {
@@ -15,8 +14,7 @@ html, body {
 /* Navbar Container */
 .navbar {
     background-color: #ffffff;
-    /* ปรับเงาให้จางลง */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     position: relative;
     width: 100%;
     top: 0;
@@ -28,9 +26,9 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%; /* กำหนดความกว้างให้เต็ม 100% ของหน้าจอ */
-    padding: 5px 80px; /* เพิ่มระยะห่างซ้ายขวาเล็กน้อยเพื่อความสวยงาม */
-    box-sizing: border-box; /* เพื่อให้ padding ถูกรวมเข้าไปในความกว้าง 100% */
+    width: 100%;
+    padding: 5px 80px;
+    box-sizing: border-box;
 }
 
 .logo img {
@@ -53,7 +51,6 @@ html, body {
     padding: 0;
     display: flex;
     gap: 20px;
-    
 }
 
 .main-menu a {
@@ -82,7 +79,6 @@ html, body {
     background-color: black;
     transform: translateX(-50%);
     transition: width 0.3s ease-in-out;
-   
 }
 
 .main-menu .dropdown {
@@ -112,18 +108,8 @@ html, body {
     color: #000;
 }
 
-.nav-indicator {
-    position: absolute;
-    bottom: 0;
-    height: 3px;
-    background-color: #000;
-    border-radius: 2px;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* อนิเมชั่นการเคลื่อนไหว */
-}
-
 /* === Mega Menu Styles === */
 .dropdown-content {
-    /* display: none; <--- Removed this line */
     position: absolute;
     top: 100%;
     left: 0;
@@ -132,18 +118,16 @@ html, body {
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     padding: 2.5rem 0;
     z-index: 999;
-    opacity: 0; /* Start fully transparent */
-    visibility: hidden; /* Hide the element */
-    transform: translateY(-10px); /* Start slightly moved up */
-    /* Smooth transition for opacity, transform, and visibility */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
 }
 
 .dropdown:hover .dropdown-content {
-    /* display: block; <--- Removed this line */
-    opacity: 1; /* Fade to fully visible */
-    visibility: visible; /* Make the element visible */
-    transform: translateY(0); /* Move to its original position */
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .dropdown:hover .dropbtn {
@@ -167,14 +151,13 @@ html, body {
     margin-bottom: 65px;
 }
 
-/* คลาสใหม่สำหรับจัดกริดสินค้า 2 ชิ้นให้อยู่ตรงกลาง */
 .product-grid-2-center {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* กำหนดให้มี 2 คอลัมน์ */
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     margin-bottom: 65px;
-    width: 400px; /* กำหนดความกว้างของกริด */
-    margin-left: auto; /* จัดให้อยู่กึ่งกลางแนวนอน */
+    width: 400px;
+    margin-left: auto;
     margin-right: auto;
 }
 
@@ -187,15 +170,11 @@ html, body {
     background-color: #f7f7f7;
     transition: background-color 0.2s ease;
     position: relative;
-   
 }
 
 .product-item:hover .product-image-wrapper img {
     transform: scale(1.1);
-
 }
-
-
 
 .product-image-wrapper {
     height: 160px;
@@ -239,18 +218,15 @@ html, body {
 .secondary-actions {
     margin-top: 30px;
     padding-top: 20px;
-    /* ลบเส้นขอบบนออก */
-    border-top: none; 
+    border-top: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* คลาสใหม่สำหรับจัดปุ่มให้อยู่ตรงกลางโดยเฉพาะ */
 .secondary-actions.center-button {
     justify-content: center;
 }
-
 
 .secondary-links {
     list-style: none;
@@ -262,18 +238,15 @@ html, body {
 
 .secondary-links a {
     text-decoration: none !important;
-    border-bottom: 2px solid #383838 !important; 
+    border-bottom: 2px solid #383838 !important;
     box-shadow: none !important;
     color: #383838;
     font-size: 14px;
     font-weight: 500;
     position: relative;
-    padding-bottom: 2px; 
+    padding-bottom: 2px;
     display: inline-block;
 }
-
-/* ⭐⭐⭐ โค้ดสำหรับปุ่มที่ถูกต้องอยู่ตรงนี้ครับ ⭐⭐⭐ */
-
 
 .action-buttons .btn {
     padding: 8px 25px;
@@ -287,38 +260,26 @@ html, body {
     text-align: center;
 }
 
-/* ปุ่ม "เปรียบเทียบ" (เพิ่มความเฉพาะเจาะจง) */
 .action-buttons .btn-filled {
     background-color: #f5f5f7;
     color: #1d1d1f;
 }
 
-/* แก้ไข :hover ให้ถูกต้อง */
 .action-buttons .btn-filled:hover {
     background-color: #e8e8ea;
 }
 
-/* ปุ่ม "ดูโทรศัพท์ทั้งหมด" (เพิ่มความเฉพาะเจาะจงและแก้ไขสี) */
 .action-buttons .btn-outlined {
     background-color: transparent;
-    color: #000000; /* เปลี่ยนเป็นสีเข้มเพื่อให้มองเห็น */
+    color: #000000;
     border-color: #1d1d1f;
-   
 }
 
 .action-buttons .btn-outlined:hover {
-    background-color: #eaeaea; /* เปลี่ยนพื้นหลังเป็นสีเข้มเมื่อ hover */
-    color: #000000; /* เปลี่ยนตัวอักษรเป็นสีขาวเมื่อ hover */
+    background-color: #eaeaea;
+    color: #000000;
 }
 
-/* ---- Styles for Simple Dropdown Menu (About Apple) ---- */
-
-
-
-/* ใช้จัดรูปแบบกรอบ dropdown ให้เล็กลงและอยู่กึ่งกลาง */
-
-
-/* ใช้จัดเรียงลิงก์ให้อยู่แนวนอน */
 .simple-menu-links {
     list-style: none;
     margin: 0;
@@ -327,31 +288,25 @@ html, body {
     justify-content: center;
 }
 
-
-
-/* สไตล์ของลิงก์แต่ละตัว */
 .simple-menu-links a {
     text-decoration: none;
     color: #333;
     font-weight: 500;
     font-size: 14px;
     transition: color 0.2s;
-   
 }
 
 .simple-menu-links a:hover {
     color: #000;
 }
 
-/* เพิ่มระยะห่างระหว่างรายการเมนู */
 .simple-menu-links li {
-    margin: 0 40px; /* กำหนดระยะห่างซ้าย-ขวา 40px */
+    margin: 0 40px;
 }
 
-/* ---- Styles for Single Link Dropdown (Apple) ---- */
 .single-link-container {
     text-align: center;
-    padding: 1rem 0; /* เพิ่มระยะห่างแนวตั้งเล็กน้อย */
+    padding: 1rem 0;
 }
 
 .single-link-container a {
@@ -366,18 +321,16 @@ html, body {
     color: #000;
 }
 
-/* Overlay for dropdown background */
 .page-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.244); /* สีดำโปร่งแสง 50% */
-    z-index: 990; /* จัดลำดับให้อยู่หลัง dropdown แต่ทับเนื้อหาอื่น */
+    background: rgba(0, 0, 0, 0.244);
+    z-index: 990;
     opacity: 0;
     visibility: hidden;
-    /* transition property is removed */
 }
 
 .overlay-visible {
@@ -385,19 +338,19 @@ html, body {
     visibility: visible;
 }
 
-/* === Search Menu Overlay Styles === */
+.search-icon-container,
+.user-icon-container {
+    position: relative;
+}
 
-/* === New Search Popup Menu Styles === */
-
-.search-popup {
-    position: absolute;   /* เปลี่ยนจาก fixed */
-    top: 100%;            /* จัดให้อยู่ใต้ container */
-    right: 0;             /* จัดให้ชิดขอบขวาของ container */
-    margin-top: 28px;     /* เพิ่มระยะห่างระหว่างไอคอนกับป๊อปอัพ */
-    width: 250px;
+.search-popup,
+.user-popup {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 28px;
     background-color: #ffffff;
     border-radius: 25px;
-    padding: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     z-index: 2000;
     visibility: hidden;
@@ -406,21 +359,23 @@ html, body {
     transition: all 0.3s ease-in-out;
 }
 
-/* Container for the search icon and popup */
-.search-icon-container {
-    position: relative;
-    display: flex;
-    align-items: center;
+.search-popup {
+    width: 250px;
+    padding: 20px;
 }
 
+.user-popup {
+    width: 245px;
+    padding: 15px;
+}
 
-.search-popup.visible {
+.search-popup.visible,
+.user-popup.visible {
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
 }
 
-/* สไตล์สำหรับ element ภายใน popup */
 .search-popup .search-bar-container {
     display: flex;
     align-items: center;
@@ -438,7 +393,7 @@ html, body {
     border: none;
     outline: none;
     background: transparent;
-    width: 50%;
+    width: 100%;
     font-size: 13px;
     font-family: 'Prompt', sans-serif;
 }
@@ -475,30 +430,8 @@ html, body {
     background-color: #f0f2f5;
 }
 
-/* === User Popup Menu Styles (Isolated) === */
-
-.user-popup {
-    position: fixed;
-    top: 65px;
-    right: 100px;
-    width: 245px;      /* <--- ปรับความกว้าง จาก 300px เป็น 280px */
-    background-color: #ffffff;
-    border-radius: 25px;
-    padding: 15px;     /* <--- ปรับระยะขอบ จาก 20px เป็น 15px */
-    z-index: 2000;
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: all 0.3s ease-in-out;
-}
-.user-popup.visible {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
-}
-
 .user-profile-header {
-    display: flex;
+   display: flex;
    align-items: center;
    margin-bottom: 15px;
 }
@@ -513,31 +446,29 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 0px; /* กลับมาใช้ระยะห่างด้านขวา */
-    flex-shrink: 0; /* ป้องกันไม่ให้ไอคอนหดตัว */
+    margin-right: 14px;
+    flex-shrink: 0;
 }
 
 .user-greeting p {
-     margin: 0 0 4px 0; 
+    margin: 0 0 2px 0;
     font-size: 16px;
     font-weight: 500;
-    margin-bottom: 2px; /* <--- เพิ่มบรรทัดนี้เพื่อเพิ่มระยะห่างเล็กน้อย */
-    padding-left: 14px;
+    padding: 0;
 }
 
 .user-auth-links {
     font-size: 13px;
-    display: flex; 
-    align-items: center; 
-    padding-left: 0px; /* <--- เพิ่มบรรทัดนี้เพื่อขยับให้ตรงกัน */
-  
+    display: flex;
+    align-items: center;
+    padding: 0;
 }
 
 .user-auth-links a {
     color: #9c9c9c;
     text-decoration: none;
-   
 }
+
 .user-auth-links span {
     margin: 0 5px;
     color: #ccc;
@@ -583,28 +514,16 @@ html, body {
     text-align: center;
     color: #555;
 }
+
 .user-main-links li a i.fa-chevron-right {
     margin-right: 0;
     font-size: 12px;
     color: #ccc;
 }
 
-/* Hide specific nav links on medium screens */
-@media (max-width: 1200px) and (min-width: 1024px) {
-  .navbar-icons > a:nth-child(1),
-  .navbar-icons > a:nth-child(2),
-  .navbar-icons > a:nth-child(3),
-  .navbar-icons > a:nth-child(4) {
-    display: none;
-  }
-}
-
-
-
-/* === Responsive Styles for Screens <= 1024px === */
-/* --- Styles for Hamburger Menu Icon (Corrected) --- */
+/* === Responsive Styles === */
 .navbar-icons .hamburger-menu {
-    display: none; /* ซ่อนไอคอนนี้ในหน้าจอขนาดใหญ่ตามปกติ */
+    display: none;
     color: #555;
     margin-left: 15px;
     font-size: 16px;
@@ -616,80 +535,57 @@ html, body {
 }
 
 
-/* === Responsive Styles for Screens <= 1024px === */
+/* --- ซ่อนเมนูข้อความเมื่อหน้าจออยู่ระหว่าง 1024px - 1200px --- */
+@media (max-width: 1200px) and (min-width: 1024px) {
+  .navbar-icons > a:nth-child(1), /* ร้านค้าออนไลน์ */
+  .navbar-icons > a:nth-child(2), /* ชุมชน */
+  .navbar-icons > a:nth-child(3), /* สนับสนุน */
+  .navbar-icons > a:nth-child(4) { /* ตัวค้นหาสาขา */
+    display: none;
+  }
+}
 
-
-   /* === Responsive Styles for Mobile Menu === */
+/* --- จุดแก้ไขที่ 1: การซ่อนไอคอนในหน้าจอขนาดเล็ก --- */
 @media (max-width: 1024px) {
     .main-menu {
-        display: none; /* ซ่อนเมนูหลักในตอนแรก */
-        position: absolute;
-        top: 100%; /* แสดงเมนูใต้ navbar */
-        left: 0;
-        right: 0;
-        background-color: #ffffff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 10px 0;
-        z-index: 998; /* ให้อยู่ใต้ overlay แต่เหนือเนื้อหาอื่น */
-    }
-
-    .main-menu.active {
-        display: block; /* แสดงเมนูเมื่อมีคลาส active */
-    }
-
-    .main-menu ul {
-        flex-direction: column; /* จัดเรียงรายการเมนูเป็นแนวตั้ง */
-        align-items: center;
-        gap: 0;
-    }
-
-    .main-menu a {
-        padding: 15px 20px;
-        width: 100%;
-        box-sizing: border-box;
-        text-align: center;
-    }
-
-    .main-menu .dropdown:hover .dropdown-content {
-        /* ปิดการใช้งาน mega menu ในโหมดมือถือ */
-        display: none;
-    }
-
-    .main-menu a::after {
-        /* เอาเส้นใต้เมื่อ hover ออกในโหมดมือถือ */
         display: none;
     }
 
     .navbar-icons .hamburger-menu {
-        display: flex; /* แสดงไอคอนแฮมเบอร์เกอร์ */
+        display: flex;
     }
 
-  .navbar-icons > a:nth-child(1),
-  .navbar-icons > a:nth-child(2),
-  .navbar-icons > a:nth-child(3),
-  .navbar-icons > a:nth-child(4),
-  .user-icon-container {
-    display: none;
-  }
+    /* ซ่อนเฉพาะลิงก์ที่เป็นข้อความและไอคอนผู้ใช้ */
+    .navbar-icons > a:nth-child(1), /* ร้านค้าออนไลน์ */
+    .navbar-icons > a:nth-child(2), /* ชุมชน */
+    .navbar-icons > a:nth-child(3), /* สนับสนุน */
+    .navbar-icons > a:nth-child(4), /* ตัวค้นหาสาขา */
+    .user-icon-container {
+        display: none;
+    }
+
+    .navbar-content {
+        padding: 5px 20px;
+    }
 }
 
 /* === Mobile Menu Styles === */
 .mobile-menu {
     position: fixed;
-    top: 0;
-    right: -100%; /* Start off-screen */
+    top: -100%;
+    left: 0;
     width: 100%;
     height: 100%;
     background-color: #ffffff;
     z-index: 2000;
-    transition: right 0.4s ease-in-out;
+    transition: top 0.4s ease-in-out;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
 }
 
 .mobile-menu.active {
-    right: 0; /* Slide in */
+    top: 0;
 }
 
 .mobile-menu-header {
@@ -742,7 +638,6 @@ html, body {
     margin: 10px 0;
 }
 
-/* Mobile User Section */
 .mobile-user-profile {
     display: flex;
     align-items: center;
@@ -763,10 +658,17 @@ html, body {
     padding-left: 0;
 }
 
-/* Hide original hamburger menu logic */
-@media (max-width: 1024px) {
-  .main-menu.active {
-    display: none;
-  }
+/* --- โค้ดสำหรับซ่อนแถบเลื่อนใน Mobile Menu --- */
+
+.mobile-menu {
+  /* สำหรับ Firefox */
+  scrollbar-width: none;
+  
+  /* สำหรับ Internet Explorer และ Edge เวอร์ชั่นเก่า */
+  -ms-overflow-style: none;
 }
 
+/* สำหรับ Chrome, Safari, และเบราว์เซอร์ที่ใช้ WebKit อื่นๆ */
+.mobile-menu::-webkit-scrollbar {
+  display: none;
+}

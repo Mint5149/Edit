@@ -140,7 +140,7 @@
                                                     alt="Apple Pencil">
                                             </div>
                                             <p class="product-name">Apple Pencil</p>
-                                            
+
                                         </a>
 
                                         <a href="#" class="product-item">
@@ -149,7 +149,7 @@
                                                     alt="AirPods">
                                             </div>
                                             <p class="product-name">AirPods</p>
-                                            
+
                                         </a>
                                     </div>
                                     <div class="secondary-actions center-button">
@@ -282,7 +282,7 @@
                     <a href="#">ตัวค้นหาสาขา</a>
 
                     <div class="search-icon-container">
-                        <a href="#" id="search-icon-trigger" class="js-overlay-trigger">
+                        <a href="#" id="search-icon-trigger">
                             <i class="fas fa-search"></i>
                         </a>
                         <div id="search-popup-menu" class="search-popup">
@@ -303,12 +303,8 @@
                         </div>
                     </div>
 
-                  
-                 
-
-
                     <div class="user-icon-container">
-                        <a href="#" id="user-icon-trigger" class="js-overlay-trigger">
+                        <a href="#" id="user-icon-trigger">
                             <i class="fas fa-user"></i>
                         </a>
                         <div id="user-popup-menu" class="user-popup">
@@ -320,6 +316,7 @@
                                     <p>สวัสดีครับ</p>
                                     <div class="user-auth-links">
                                         <a href="#">ลงทะเบียน ></a>
+                                      
                                         <a href="#">เข้าสู่ระบบ ></a>
                                     </div>
                                 </div>
@@ -342,27 +339,27 @@
                         </div>
                     </div>
 
-                    <a href="#">
+                    <a href="#" class="cart-icon">
                         <i class="fas fa-shopping-cart"></i>
                     </a>
                     <a href="#" class="hamburger-menu" id="hamburger-menu">
-            <i class="fas fa-bars"></i>
-        </a>
+                        <i class="fas fa-bars"></i>
+                    </a>
 
                 </div>
             </div>
     </header>
     <div class="page-overlay"></div>
     <div class="mobile-menu" id="mobile-menu">
-    <div class="mobile-menu-header">
-        <div class="mobile-logo">
-            <a href="#">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="apple-logo">
-            </a>
+        <div class="mobile-menu-header">
+            <div class="mobile-logo">
+                <a href="#">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="apple-logo">
+                </a>
+            </div>
+            <a href="#" class="mobile-menu-close" id="mobile-menu-close">&times;</a>
         </div>
-        <a href="#" class="mobile-menu-close" id="mobile-menu-close">&times;</a>
-    </div>
-    <div class="mobile-menu-content">
+        <div class="mobile-menu-content">
         <div class="mobile-links-group">
             <a href="#" class="mobile-link-item"><span>โทรศัพท์</span> <i class="fas fa-plus"></i></a>
             <a href="#" class="mobile-link-item"><span>แท็บเล็ต</span> <i class="fas fa-plus"></i></a>
@@ -372,16 +369,12 @@
             <a href="#" class="mobile-link-item"><span>ColorOS</span> <i class="fas fa-plus"></i></a>
         </div>
 
-        <hr class="mobile-menu-divider">
-
         <div class="mobile-links-group">
             <a href="#" class="mobile-link-item"><span>ร้านค้าออนไลน์</span> <i class="fas fa-chevron-right"></i></a>
             <a href="#" class="mobile-link-item"><span>ชุมชน</span> <i class="fas fa-chevron-right"></i></a>
             <a href="#" class="mobile-link-item"><span>สนับสนุน</span> <i class="fas fa-chevron-right"></i></a>
             <a href="#" class="mobile-link-item"><span>ตัวค้นหาสาขา</span> <i class="fas fa-chevron-right"></i></a>
         </div>
-
-        <hr class="mobile-menu-divider">
 
         <div class="mobile-user-section">
             <div class="mobile-user-profile">
@@ -396,14 +389,17 @@
                     </div>
                 </div>
             </div>
-            <a href="#" class="mobile-link-item"><span>Membership</span> <i class="fas fa-chevron-right"></i></a>
+        </div>
+
+        <div class="mobile-links-group">
+             <a href="#" class="mobile-link-item"><span>Membership</span> <i class="fas fa-chevron-right"></i></a>
         </div>
     </div>
-</div>
+    </div>
 
-    <script>
+<script>
     document.addEventListener('DOMContentLoaded', () => {
-        // --- 1. เลือก Element ที่จำเป็นทั้งหมด ---
+        // 1. เลือก Element ที่จำเป็น
         const overlay = document.querySelector('.page-overlay');
         const dropdowns = document.querySelectorAll('.dropdown.js-overlay-trigger');
         const searchContainer = document.querySelector('.search-icon-container');
@@ -411,99 +407,63 @@
         const userContainer = document.querySelector('.user-icon-container');
         const userPopup = document.getElementById('user-popup-menu');
         const hamburgerMenu = document.getElementById('hamburger-menu');
-        const hamburgerIcon = document.getElementById('hamburger-menu');
         const mobileMenu = document.getElementById('mobile-menu');
-        const closeIcon = document.getElementById('mobile-menu-close');
-       
+        const closeMenuIcon = document.getElementById('mobile-menu-close');
 
-        let hideOverlayTimeout;
-        let hideSearchPopupTimeout;
-        let hideUserPopupTimeout;
+        // 2. ฟังก์ชันจัดการป๊อปอัพเมื่อโฮเวอร์
+        const setupPopupHover = (container, popup) => {
+            let leaveTimeout;
+            const show = () => {
+                clearTimeout(leaveTimeout);
+                overlay.classList.add('overlay-visible');
+                popup.classList.add('visible');
+            };
+            const hide = () => {
+                leaveTimeout = setTimeout(() => {
+                    overlay.classList.remove('overlay-visible');
+                    popup.classList.remove('visible');
+                }, 200);
+            };
 
-        // --- ฟังก์ชันแสดงและซ่อนพื้นหลัง ---
-
-       
-
-
-
-
-if (hamburgerIcon && mobileMenu && closeIcon) {
-    hamburgerIcon.addEventListener('click', (e) => {
-        e.preventDefault();
-        mobileMenu.classList.add('active');
-    });
-
-    closeIcon.addEventListener('click', (e) => {
-        e.preventDefault();
-        mobileMenu.classList.remove('active');
-    });
-}
-    if (hamburgerMenu && mainMenu) {
-        hamburgerMenu.addEventListener('click', (event) => {
-            event.preventDefault(); // ป้องกันการเลื่อนหน้าจอขึ้นไปด้านบน
-            mainMenu.classList.toggle('active');
-        });
-    }
-        const showOverlay = () => {
-            clearTimeout(hideOverlayTimeout);
-            overlay.classList.add('overlay-visible');
+            container.addEventListener('mouseenter', show);
+            container.addEventListener('mouseleave', hide);
+            popup.addEventListener('mouseenter', show);
+            popup.addEventListener('mouseleave', hide);
         };
 
-        const hideOverlay = () => {
-            hideOverlayTimeout = setTimeout(() => {
-                overlay.classList.remove('overlay-visible');
-            }, 150);
-        };
-
-        // --- 2. การทำงานของเมนูหลัก (Mac, iPad, ...) ---
-        dropdowns.forEach(dropdown => {
-            dropdown.addEventListener('mouseenter', showOverlay);
-            dropdown.addEventListener('mouseleave', hideOverlay);
-        });
-
-        // --- 3. การทำงานของเมนูค้นหา ---
+        // 3. เรียกใช้งานฟังก์ชันสำหรับเมนูค้นหาและผู้ใช้
         if (searchContainer && searchPopup) {
-            searchContainer.addEventListener('mouseenter', () => {
-                clearTimeout(hideSearchPopupTimeout);
-                showOverlay();
-                searchPopup.classList.add('visible');
-            });
-
-            searchContainer.addEventListener('mouseleave', () => {
-                hideSearchPopupTimeout = setTimeout(() => {
-                    searchPopup.classList.remove('visible');
-                    hideOverlay();
-                }, 150);
-            });
+            setupPopupHover(searchContainer, searchPopup);
         }
-
-        // --- 4. การทำงานของเมนูผู้ใช้ (โค้ดที่แก้ไขแล้ว) ---
         if (userContainer && userPopup) {
-            userContainer.addEventListener('mouseenter', () => {
-                clearTimeout(hideUserPopupTimeout);
-                clearTimeout(hideSearchPopupTimeout); // ยกเลิกการซ่อนของเมนูค้นหา
-                
-                // **ส่วนที่เพิ่มเข้ามา**
-                showOverlay(); // แสดงพื้นหลังทึบ
-                
-                userPopup.classList.add('visible');
-            });
+            setupPopupHover(userContainer, userPopup);
+        }
 
-            userContainer.addEventListener('mouseleave', () => {
-                hideUserPopupTimeout = setTimeout(() => {
-                    userPopup.classList.remove('visible');
-                    
-                    // **ส่วนที่เพิ่มเข้ามา**
-                    hideOverlay(); // ซ่อนพื้นหลังทึบ
-                }, 150);
+        // 4. การทำงานของเมนูหลักที่มี Mega Menu
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('mouseenter', () => overlay.classList.add('overlay-visible'));
+            dropdown.addEventListener('mouseleave', () => overlay.classList.remove('overlay-visible'));
+        });
+
+        // 5. การทำงานของเมนู Hamburger (เปิด)
+        if (hamburgerMenu && mobileMenu) {
+            hamburgerMenu.addEventListener('click', (e) => {
+                e.preventDefault();
+                mobileMenu.classList.add('active');
             });
         }
-   
+
+        // 6. การทำงานของปุ่มปิดเมนู (X)
+        if (closeMenuIcon && mobileMenu) {
+            closeMenuIcon.addEventListener('click', (e) => {
+                e.preventDefault();
+                mobileMenu.classList.remove('active');
+            });
+        }
     });
 </script>
 
     <body>
-
         <section class="camera-section">
             <div class="banner-content">
                 <h1>iPhone 16</h1>
@@ -521,8 +481,6 @@ if (hamburgerIcon && mobileMenu && closeIcon) {
                 <button class="btn order-now">สั่งซื้อเลย</button>
             </div>
         </section>
-
-
 
         <section class="camera-section2">
             <p class="macbook-air-text">MacBook Air</p>
@@ -548,8 +506,6 @@ if (hamburgerIcon && mobileMenu && closeIcon) {
                 <button class="btn learn-more">เรียนรู้เพิ่มเติม</button>
                 <button class="btn order-now">สั่งซื้อเลย</button>
             </div>
-            <div class="vertical-text-section">
-            </div>
         </section>
 
         <main>
@@ -559,14 +515,10 @@ if (hamburgerIcon && mobileMenu && closeIcon) {
                     <a href="#" class="product-more-link">ดูสินค้าเพิ่มเติม <span class="arrow">></span></a>
                 </div>
 
-                <!--สินค้าใหม่ -->
-
                 <div class="product-hero">
                     <div class="hero-content">
                         <h1 class="hero-title">iPad Air 6</h1>
-                        <p class="card-description"> ยกระดับประสบการณ์การสร้างสรรค์ด้วยชิป M2 และกล้องหน้าอัลตร้าไวด์
-                            12MP
-                        </p>
+                        <p class="card-description"> ยกระดับประสบการณ์การสร้างสรรค์ด้วยชิป M2 และกล้องหน้าอัลตร้าไวด์ 12MP</p>
                         <div class="hero-buttons">
                             <button class="hero-btn">เรียนรู้เพิ่มเติม</button>
                             <button class="hero-btn">สั่งซื้อคลิก</button>
@@ -577,88 +529,35 @@ if (hamburgerIcon && mobileMenu && closeIcon) {
                     </div>
                 </div>
 
-
                 <div class="product-row">
                     <div class="product-card">
                         <div class="card-text">
                             <h3 class="card-title">AirPods Max</h3>
-                            <p class="card-description">
-                                เสียงคมชัดทุกย่านความถี่<br>เสียงระดับ High-Fidelity
-                            </p>
+                            <p class="card-description">เสียงคมชัดทุกย่านความถี่<br>เสียงระดับ High-Fidelity</p>
                             <div class="card-buttons">
                                 <button class="card-btn">เรียนรู้เพิ่มเติม</button>
                                 <button class="card-btn">สั่งซื้อคลิก</button>
                             </div>
                         </div>
                         <div class="card-image-wrapper">
-                            <img src="./styles/picproduct/hero__gnfk5g59t0qe_xlarge.png" alt="AirPods Max"
-                                class="card-image">
+                            <img src="./styles/picproduct/hero__gnfk5g59t0qe_xlarge.png" alt="AirPods Max" class="card-image">
                         </div>
                     </div>
-
                     <div class="product-card">
                         <div class="card-text">
                             <h3 class="card-title">Apple Watch Series 10</h3>
-                            <p class="card-description">
-                                ล้ำไปอีกขั้น<br>สวยสะกดทุกสายตา
-                            </p>
+                            <p class="card-description">ล้ำไปอีกขั้น<br>สวยสะกดทุกสายตา</p>
                             <div class="card-buttons">
                                 <button class="card-btn">เรียนรู้เพิ่มเติม</button>
                                 <button class="card-btn">สั่งซื้อคลิก</button>
                             </div>
                         </div>
                         <div class="card-image-wrapper">
-                            <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/watch-ultra2-digitalmat-gallery-1-202403?wid=728&hei=666&fmt=png-alpha&.v=1708453942051"
-                                alt="Apple Watch" class="card-image-stacked">
+                            <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/watch-ultra2-digitalmat-gallery-1-202403?wid=728&hei=666&fmt=png-alpha&.v=1708453942051" alt="Apple Watch" class="card-image-stacked">
                         </div>
                     </div>
                 </div>
-
-                <div class="product-row">
-                    <div class="product-card">
-                        <div class="card-text">
-                            <h3 class="card-title">Apple Watch X2</h3>
-                            <p class="card-description">
-                                สร้างสรรค์ให้มีความเป็นเอกลักษณ์
-                            </p>
-                            <div class="card-buttons">
-                                <button class="card-btn">เรียนรู้เพิ่มเติม</button>
-                                <button class="card-btn">สั่งซื้อคลิก</button>
-                            </div>
-                        </div>
-                        <div class="card-image-wrapper">
-                            <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/airpods-max-select-midnight-202011?wid=940&hei=1112&fmt=png-alpha&.v=1604022372000"
-                                alt="AirPods Max" class="card-image">
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="card-text">
-                            <h3 class="card-title">iPad SE</h3>
-                            <p class="card-description">
-                                หน้าจอขอบบางเป็นฐานของทุกสิ่ง
-                            </p>
-                            <div class="card-buttons">
-                                <button class="card-btn">เรียนรู้เพิ่มเติม</button>
-                                <button class="card-btn">สั่งซื้อคลิก</button>
-                            </div>
-                        </div>
-                        <div class="card-image-wrapper">
-                            <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/watch-ultra2-digitalmat-gallery-1-202403?wid=728&hei=666&fmt=png-alpha&.v=1708453942051"
-                                alt="Apple Watch" class="card-image-stacked">
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
         </main>
-
     </body>
-
-
-
-
-
-
 </html>
