@@ -29,7 +29,7 @@
                             alt="apple-logo">
                     </a>
                 </div>
-                <nav class="main-menu">
+                <nav class="main-menu" >
                     <ul>
                         <li class="dropdown js-overlay-trigger ">
                             <a href="#" class="dropbtn">Mac</a>
@@ -345,7 +345,7 @@
                     <a href="#">
                         <i class="fas fa-shopping-cart"></i>
                     </a>
-                    <a href="#" class="hamburger-menu">
+                    <a href="#" class="hamburger-menu" id="hamburger-menu">
             <i class="fas fa-bars"></i>
         </a>
 
@@ -353,6 +353,53 @@
             </div>
     </header>
     <div class="page-overlay"></div>
+    <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-header">
+        <div class="mobile-logo">
+            <a href="#">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="apple-logo">
+            </a>
+        </div>
+        <a href="#" class="mobile-menu-close" id="mobile-menu-close">&times;</a>
+    </div>
+    <div class="mobile-menu-content">
+        <div class="mobile-links-group">
+            <a href="#" class="mobile-link-item"><span>โทรศัพท์</span> <i class="fas fa-plus"></i></a>
+            <a href="#" class="mobile-link-item"><span>แท็บเล็ต</span> <i class="fas fa-plus"></i></a>
+            <a href="#" class="mobile-link-item"><span>เสียง</span> <i class="fas fa-plus"></i></a>
+            <a href="#" class="mobile-link-item"><span>อุปกรณ์สวมใส่</span> <i class="fas fa-plus"></i></a>
+            <a href="#" class="mobile-link-item"><span>เกี่ยวกับ OPPO</span> <i class="fas fa-plus"></i></a>
+            <a href="#" class="mobile-link-item"><span>ColorOS</span> <i class="fas fa-plus"></i></a>
+        </div>
+
+        <hr class="mobile-menu-divider">
+
+        <div class="mobile-links-group">
+            <a href="#" class="mobile-link-item"><span>ร้านค้าออนไลน์</span> <i class="fas fa-chevron-right"></i></a>
+            <a href="#" class="mobile-link-item"><span>ชุมชน</span> <i class="fas fa-chevron-right"></i></a>
+            <a href="#" class="mobile-link-item"><span>สนับสนุน</span> <i class="fas fa-chevron-right"></i></a>
+            <a href="#" class="mobile-link-item"><span>ตัวค้นหาสาขา</span> <i class="fas fa-chevron-right"></i></a>
+        </div>
+
+        <hr class="mobile-menu-divider">
+
+        <div class="mobile-user-section">
+            <div class="mobile-user-profile">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-greeting">
+                    <p>สวัสดีครับ</p>
+                    <div class="user-auth-links">
+                        <a href="#">ลงทะเบียน ></a>
+                        <a href="#">เข้าสู่ระบบ ></a>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="mobile-link-item"><span>Membership</span> <i class="fas fa-chevron-right"></i></a>
+        </div>
+    </div>
+</div>
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -363,13 +410,40 @@
         const searchPopup = document.getElementById('search-popup-menu');
         const userContainer = document.querySelector('.user-icon-container');
         const userPopup = document.getElementById('user-popup-menu');
- 
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const hamburgerIcon = document.getElementById('hamburger-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeIcon = document.getElementById('mobile-menu-close');
+       
 
         let hideOverlayTimeout;
         let hideSearchPopupTimeout;
         let hideUserPopupTimeout;
 
         // --- ฟังก์ชันแสดงและซ่อนพื้นหลัง ---
+
+       
+
+
+
+
+if (hamburgerIcon && mobileMenu && closeIcon) {
+    hamburgerIcon.addEventListener('click', (e) => {
+        e.preventDefault();
+        mobileMenu.classList.add('active');
+    });
+
+    closeIcon.addEventListener('click', (e) => {
+        e.preventDefault();
+        mobileMenu.classList.remove('active');
+    });
+}
+    if (hamburgerMenu && mainMenu) {
+        hamburgerMenu.addEventListener('click', (event) => {
+            event.preventDefault(); // ป้องกันการเลื่อนหน้าจอขึ้นไปด้านบน
+            mainMenu.classList.toggle('active');
+        });
+    }
         const showOverlay = () => {
             clearTimeout(hideOverlayTimeout);
             overlay.classList.add('overlay-visible');
