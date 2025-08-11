@@ -5,6 +5,10 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f0f2f5;
+   
+}
+
+html, body {
     overflow-x: hidden;
 }
 
@@ -583,4 +587,55 @@ body {
     margin-right: 0;
     font-size: 12px;
     color: #ccc;
+}
+
+/* Hide specific nav links on medium screens */
+@media (max-width: 1200px) and (min-width: 1024px) {
+  .navbar-icons > a:nth-child(1),
+  .navbar-icons > a:nth-child(2),
+  .navbar-icons > a:nth-child(3),
+  .navbar-icons > a:nth-child(4) {
+    display: none;
+  }
+}
+
+
+
+/* === Responsive Styles for Screens <= 1024px === */
+/* --- Styles for Hamburger Menu Icon (Corrected) --- */
+.navbar-icons .hamburger-menu {
+    display: none; /* ซ่อนไอคอนนี้ในหน้าจอขนาดใหญ่ตามปกติ */
+    color: #555;
+    margin-left: 15px;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.navbar-icons .hamburger-menu:hover {
+    color: #000;
+}
+
+
+/* === Responsive Styles for Screens <= 1024px === */
+@media (max-width: 1024px) {
+
+    /* 1. ซ่อนเมนูหลักด้านซ้ายทั้งหมด */
+    .main-menu {
+        display: none;
+    }
+
+    /* 2. ซ่อนลิงก์ตัวอักษรและไอคอนผู้ใช้ */
+    .navbar-icons > a:nth-child(1),
+    .navbar-icons > a:nth-child(2),
+    .navbar-icons > a:nth-child(3),
+    .navbar-icons > a:nth-child(4),
+    .user-icon-container {
+        display: none;
+    }
+
+    /* 3. แสดงไอคอน Hamburger ที่เพิ่มเข้าไป */
+    .navbar-icons .hamburger-menu {
+        display: flex;
+        align-items: center;
+    }
 }
